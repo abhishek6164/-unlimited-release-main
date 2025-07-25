@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campa Cola Royale | The Taste of Heritage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #main {
+            width: 100vw;
+            min-height: 100vh;
+            overflow-y: hidden !important;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        /* Nav Top Css */
+
+        #nav_top {
+            width: 94.2vw;
+            height: 12vh;
+            padding: 0 4.5vw 0 4vw;
+            left: 5vw;
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #nav_top>img {
+            height: 130px;
+
+        }
+
+        #nav_top>button {
+            padding: 7px 16px;
+            font-family: "druk heavy";
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+            line-height: 24px;
+            color: #fff;
+            white-space: nowrap;
+            background-color: rgb(199, 29, 29);
+            border-style: none;
+            cursor: pointer;
+        }
+
+        #nav_top>i {
+            font-size: 2.5vw;
+            display: none;
+        }
+
+        /* Nav Left Css */
+
+        #nav_left {
+            width: 5vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 0;
+            align-items: center;
+            position: absolute;
+            z-index: 1;
+            gap: 2vmax;
+            border-right: 2px solid rgb(43, 42, 42);
+        }
+
+        /* Bottle Image */
+
+        #bottle {
+            position: absolute;
+            height: 95vh;
+            top: 0%;
+            left: 38%;
+            z-index: 990;
+            border-image: 0 0 2vmax black;
+        }
+
+        #bottlecopy {
+            display: none;
+        }
+
+        /* Page1 Css */
+
+        #page1 {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #page1 h1 {
+            width: 90vw;
+            background-color: rgb(153, 13, 13);
+            font-family: 'Antom', sans-serif;
+            font-size: 13vw;
+            font-weight: 900;
+            text-align: center;
+            word-spacing: -1.5vw;
+            text-transform: uppercase;
+            line-height: 12vw;
+            background-image: url(img/texture.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #page1_dog_image {
+            height: 20vh;
+            position: absolute;
+            top: 17%;
+            left: 34.5%;
+            transform: rotate(-25deg);
+        }
+
+        /* Page 2 Css */
+
+
+        #page2 {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4.1vw 0 10vw;
+        }
+
+        #page2_part1 {
+            width: 25vw;
+            height: 79vh;
+        }
+
+        #page2_part1 h3 {
+            font-family: dancing script;
+            margin-bottom: 12px;
+        }
+
+        #page2_part1 h1 {
+            width: 25vw;
+            height: 30vh;
+            font-size: 7vw;
+            line-height: 14vh;
+            font-weight: 500;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            word-spacing: -1vmax;
+            background: url(img/texture.png);
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-color: black;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #page2_part1>p {
+            font-family: Gilroy;
+            color: #111;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 22px;
+            margin-bottom: 15px;
+        }
+
+        #page2_part1>button {
+            padding: 10px 20px;
+            font-family: "druk heavy";
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 800;
+            line-height: 20px;
+            white-space: nowrap;
+            background-color: black;
+            border-style: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #page2_part2 {
+            width: 26.5vw;
+            height: 65vh;
+            padding: 3.5vmax 3.5vmax;
+            border: 0.2vmax solid black;
+            box-shadow: 0 0 0.2vmax black;
+            font-family: Gilroy;
+        }
+
+        #page2_part2 h3 {
+            font-size: 15px;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+
+        #page2_part2 h5 {
+            font-size: 13px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #666;
+        }
+
+
+        #box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 0.2vmax solid black;
+            margin-bottom: 1vh;
+        }
+
+        #page2_part2 p {
+            font-size: 10px;
+            width: 12vw;
+            color: #111;
+            line-height: 13px;
+            font-weight: 600;
+        }
+
+        #box h2 {
+            font-size: 40px;
+            font-family: "druk heavy";
+        }
+
+        #box h2 span {
+            font-size: 30px;
+        }
+
+        /* page 3 css */
+
+
+        #page3 {
+            width: 100vw;
+            height: 110vh;
+            padding: 0 5vmax 0 10vmax;
+        }
+
+        #page3 h1 {
+            width: 85vw;
+            font-size: 18.3vw;
+            line-height: 18.5vw;
+            font-weight: 500;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            background: url(img/texture.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-color: rgb(177, 29, 29);
+        }
+
+        #page3_text {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #page3_text_part1 a img {
+            width: 25vw;
+            margin-top: 3vh;
+        }
+
+        #page3_text_part1 h5 {
+            width: 23vw;
+            font-size: 2vw;
+            margin-top: 3vh;
+            line-height: 4vh;
+            font-family: Gilroy;
+        }
+
+        #page3_text_part2 {
+            width: 30vw;
+            padding: 1vmax 2vmax;
+        }
+
+        #page3_text_part2 h5 {
+            width: 25vw;
+            font-size: 1vmax;
+            font-family: 'Dosis', sans-serif;
+            font-weight: 100;
+        }
+
+        #page3_text_part2 h2 {
+            margin-top: 2vmax;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5vmax;
+            font-weight: 100;
+            letter-spacing: 0.05vmax;
+
+        }
+
+        #page3_text_part2 p {
+            margin-top: 3vh;
+            font-family: 'Dosis', sans-serif;
+            font-weight: 100;
+        }
+
+        /* Page 4 css */
+
+        #page4 {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: relative;
+        }
+
+        #page4_color_image1 {
+            width: 20vw;
+            margin: 0vh 0 0 20vh;
+        }
+
+        #page4_color_image1_text {
+            width: 13vw;
+            position: absolute;
+            top: 5%;
+            left: 15%;
+            color: #fff;
+            text-align: center;
+        }
+
+        #page4_color_image1_text h4 {
+            width: 8vw;
+            margin-bottom: 1vh;
+            margin-left: 3vmax;
+            font-family: 'Anton', sans-serif;
+            border-bottom: 0.2vmax solid #000;
+            font-weight: 100;
+            letter-spacing: 0.1vmax;
+            text-transform: uppercase;
+        }
+
+
+
+        #page4_color_image2 {
+            width: 21vw;
+            margin: 26vh 0 0 -6vh;
+        }
+
+        #page4_color_image2_text {
+            width: 13vw;
+            position: absolute;
+            top: 32%;
+            left: 33%;
+            color: #fff;
+            text-align: center;
+        }
+
+        #page4_color_image2_text h4 {
+            width: 4vw;
+            margin-left: 5vmax;
+            font-family: 'Anton', sans-serif;
+            border-bottom: 0.2vmax solid #000;
+            font-weight: 100;
+            letter-spacing: 0.1vmax;
+            text-align: center;
+            text-transform: uppercase;
+
+        }
+
+
+
+        #page4_color_image3 {
+            width: 25vw;
+            margin: 20vh 0 0 40vh;
+        }
+
+        #page4_color_image3_text {
+            width: 15vw;
+            position: absolute;
+            top: 30%;
+            left: 74%;
+            color: #fff;
+            text-align: center;
+        }
+
+        #page4_color_image3_text h4 {
+            width: 8vw;
+            margin-bottom: 1vh;
+            margin-left: 3.5vmax;
+            text-transform: uppercase;
+            font-family: 'Anton', sans-serif;
+            border-bottom: 0.2vmax solid #000;
+            font-weight: 100;
+            letter-spacing: 0.1vmax;
+            text-transform: uppercase;
+        }
+
+        #page4_color_image4 {
+            width: 16vw;
+            height: 50vh;
+            margin: 45vh 0 0 -165vh;
+            transform: rotate(-17deg);
+        }
+
+
+        /* Page 5 css */
+
+
+        #page5 {
+            width: 100vw;
+            height: 110vh;
+            padding: 0 0 0 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #page5 h5 {
+            font-size: 2.5vmax;
+            font-family: Gilroy;
+        }
+
+        #page5 h1 {
+            width: 30vw;
+            text-transform: uppercase;
+            font-family: 'Anton', sans-serif;
+            font-weight: 600;
+            font-size: 6.5vw;
+            background: url(img/texture.png);
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-color: black;
+        }
+
+
+
+        #page5_image_box {
+            width: 100vw;
+            height: 85vh;
+            padding: 0 3vw 0 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        #page5_bottel {
+            width: 15vw;
+            height: 60vh;
+            justify-content: center;
+        }
+
+        #page5_bottel h4 {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+            font-family: Gilroy;
+        }
+
+        #page5_bottel img {
+            width: 15vw;
+        }
+
+        #image11 {
+            height: 47vh;
+        }
+
+        #image22 {
+            transform: rotate(deg);
+            height: 45vh;
+        }
+
+        #image33 {
+            height: 47vh;
+            opacity: 0;
+            transform: rotate(-15deg);
+        }
+
+        #image44 {
+            transform: rotate(deg);
+        }
+
+        #image55 {
+            transform: rotate(deg);
+        }
+
+        #page5_bottel h4 {
+            font-family: 'Dosis', sans-serif;
+        }
+
+        #page5_bottel h6 {
+            display: flex;
+            justify-content: space-around;
+            font-family: Gilroy;
+            font-size: 1.1vmax;
+        }
+
+
+        /* Page 6 */
+
+        #page6 {
+            width: 100vw;
+            height: 90vh;
+            padding: 0 0vw 0 9vw;
+            display: flex;
+            gap: 30px;
+        }
+
+        #page6 img {
+            width: 50vw;
+            height: 62vh;
+        }
+
+        #page5_part2 {
+            padding: 0 4vw 0 4vw;
+            width: 40vw;
+            height: 62vh;
+        }
+
+        #page6_part2 h5 {
+            font-size: 2vmax;
+            font-family: Gilroy;
+        }
+
+        #page6_part2 h1 {
+            margin-top: 3vh;
+            width: 30vw;
+            font-family: 'Anton', sans-serif;
+            font-size: 4vw;
+            font-weight: 100;
+            line-height: 9.5vh;
+            letter-spacing: 0.5vw;
+            text-transform: uppercase;
+        }
+
+        #page6_part2 p {
+            margin-top: 3vh;
+            font-weight: 400;
+            font-family: 'Dosis', sans-serif;
+            color: #111;
+        }
+
+        #page6_part2>button {
+            margin-top: 3vh;
+            font-size: 1.2vmax;
+            padding: 0.8vmax 1.5vmax;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            font-weight: 100;
+            color: #fff;
+            background-color: #000;
+            border-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="nav_top">
+        <img src="img/campalogo.png" alt="">
+        <button>Buy Now</button>
+        <i class="ri-menu-line"></i>
+    </nav>
+    <nav id="nav_left">
+        <i class="ri-menu-line"></i>
+        <i class="ri-search-line"></i>
+    </nav>
+    <div id="main">
+        <img id="bottle" src="./img/c.png" alt="">
+
+        <div id="page1">
+            <h1>Welcome to</h1>
+            <img id="page1_dog_image" src="./img/campalogo2.png" alt="">
+        </div>
+
+        <div id="page2">
+            <div id="page2_part1">
+                <h3>Classic Taste</h3>
+                <h1>Campa <br> Cola </h1>
+                <p>
+                    India’s Original Cola Since 1977.
+                    Enjoy the perfectly balanced blend of sweet caramel notes
+                    and fizzy refreshment—available in glass bottles, cans, and PET.
+                </p>
+                <button>Buy Now!</button>
+            </div>
+            <div id="page2_part2">
+                <!-- Sugar Content -->
+                <h3>Sugar Content</h3>
+                <h5>per 330 ml</h5>
+                <div id="box">
+                    <h2>35<span>g</span></h2>
+                    <p>
+                        Contains 35 g of sugar per serving—deliciously sweet,
+                        crafted for your perfect cola experience.
+                    </p>
+                </div>
+
+                <!-- Caffeine -->
+                <h3>Caffeine</h3>
+                <h5>per 330 ml</h5>
+                <div id="box">
+                    <h2>30<span>mg</span></h2>
+                    <p>
+                        A mild caffeine boost to lift your spirits—30 mg in every can.
+                    </p>
+                </div>
+
+                <!-- Calories -->
+                <h3>Calories</h3>
+                <h5>per 330 ml</h5>
+                <div id="box">
+                    <h2>140<span>kcal</span></h2>
+                    <p>
+                        140 kcal per serving—enjoy in moderation as part of a balanced diet.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="page3">
+            <h1>Fizz & Feels</h1>
+            <div id="page3_text">
+                <div id="page3_text_part1">
+                    <a href="">
+                        <img src="img/campacolaambani.jpeg" alt="Campa Cola video thumbnail">
+                    </a>
+                    <h5>Hear it from true Campa fans – the fizz, the flavor, the memories!</h5>
+                </div>
+                <div id="page3_text_part2">
+                    <h5>
+                        Campa Cola isn’t just a drink—it’s a feeling. From old-school glass bottles to today’s cool
+                        cans, the
+                        fizz still sparks joy across generations.
+                    </h5>
+                    <h2>TASTE PROFILE</h2>
+                    <p>
+                        Bold cola flavor with a caramel twist and smooth fizz that dances on your tongue. Campa Cola
+                        brings
+                        back the taste of carefree afternoons and family celebrations.
+                    </p>
+                    <p>
+                        Whether you’re reliving old memories or creating new ones, Campa Cola is the perfect companion.
+                        Chill,
+                        pop, and sip the original Indian cola magic.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="page4">
+            <div id="page4_color1">
+                <img id="page4_color_image1" src="img/Green-LSS.png" alt="">
+                <div id="page4_color_image1_text">
+                    <h4>Lime Blast</h4>
+                    <p>
+                        A zesty twist of lemon and lime—Campa’s Lime Blast is a citrusy favorite that refreshes
+                        instantly. Perfect for hot Indian summers.
+                    </p>
+                </div>
+            </div>
+            <div id="page4_color2">
+                <img id="page4_color_image2" src="img/Green-LSS.png" alt="">
+                <div id="page4_color_image2_text">
+                    <h4>Raspberry Pop</h4>
+                    <p>
+                        Bursting with berry flavor, this fizzy pink drink is sweet, playful, and made for those who love
+                        bold, fruity refreshment.
+                    </p>
+                </div>
+            </div>
+            <div id="page4_color3">
+                <img id="page4_color_image3" src="img/splat-black.png" alt="">
+                <div id="page4_color_image3_text">
+                    <h4>Cola Classic</h4>
+                    <p>
+                        The original taste of Campa Cola. Deep caramel notes, smooth bubbles, and the iconic flavor that
+                        defined a generation.
+                    </p>
+                </div>
+            </div>
+            <img src="./img/cokeglass.png" alt="" id="page4_color_image4">
+        </div>
+
+
+        <div id="page5">
+            <h5>Availability</h5>
+            <h1>year round</h1>
+            <div id="page5_image_box">
+                <div class="page5_extraimage" id="page5_bottel">
+                    <img id="image11" src="img/campacolabg.png" alt="">
+                    <h6>Cola </h6>
+                </div>
+                <div id="page5_bottel">
+                    <img id="image22" src="img/campalemonbg.png" alt="">
+                    <h6> Lemon Zing</h6>
+                </div>
+                <div id="page5_bottel">
+                    <img id="image33" src="img/campacola.png" alt="">
+                    <h6> Cola Classic</h6>
+                </div>
+                <div id="page5_bottel">
+                    <img id="image44" src="img/campalimebg.png" alt="">
+                    <h6>Lime & Lemon</h6>
+                </div>
+                <div id="page5_bottel">
+                    <img id="image55" src="img/campaorangebg.png" alt="">
+                    <h6>Orange Punch</h6>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="page6">
+            <div id="page6_part1">
+                <img src="./img/ads.webp" alt="">
+            </div>
+            <div id="page6_part2">
+                <h5>Recipes</h5>
+                <h1>Campa Pairs. Taste Explodes.</h1>
+                <p>
+                    From roadside snacks to gourmet meals, Campa Cola makes every bite better. Discover fun and fizzy
+                    recipe pairings that bring your favorite flavors to life — spicy, tangy, or sweet, there’s a Campa
+                    for every dish!
+                </p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"
+        integrity="sha512-gsEItzcNkWxfxHjr4BaEZAd9YuRWYjxnj7c/yukcZ0/nWehUb5TjJNyyv1ApCU2DFH/qgw+stFZHPOKnoQnIuQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js"
+        integrity="sha512-ko44b+LlYXwGZI6Gey6Tgrhew9JEPdSE6m7FqDyGGPDW+dDOjsCElEtiUIRRtCXRNHwKheBCnHCQSMdUz/pgkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/b90a16c0c9.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <script>// GSAP ScrollTrigger aur Locomotive Scroll ka setup
+        function show() {
+            gsap.registerPlugin(ScrollTrigger); // GSAP ke ScrollTrigger plugin ko register karna
+
+            const locoScroll = new LocomotiveScroll({
+                el: document.querySelector("#main"), // Yeh wahi element hai jisme smooth scroll chahiye
+                smooth: true // Smooth scroll on
+            });
+
+            locoScroll.on("scroll", ScrollTrigger.update); // Jab scroll ho, GSAP ko batao
+
+            ScrollTrigger.scrollerProxy("#main", {
+                scrollTop(value) {
+                    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+                },
+                getBoundingClientRect() {
+                    return {
+                        top: 0,
+                        left: 0,
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    };
+                },
+                pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+            });
+
+            ScrollTrigger.addEventListener("refresh", () => locoScroll.update()); // Refresh pe Locomotive update
+            ScrollTrigger.refresh(); // ScrollTrigger ka internal refresh
+        }
+
+        show(); // Function ko call kar diya
+
+
+
+
+        // 🌪️ Bottle ko rotate karte jao scroll ke saath
+        gsap.to("#bottle", {
+            rotate: -15, // Ghumana hai -15 deg
+            scrollTrigger: {
+                trigger: "#bottle",
+                scroller: "#main",
+                start: "top 5%",   // Jab bottle top se 5% pe ho
+                end: "top -416%",  // Jab bottle bahut upar chala jaye
+                scrub: true,
+                pin: true
+            }
+        });
+
+        // 📏 Bottle ko chhota karna scroll pe
+        gsap.to("#bottle", {
+            scale: 0.5, // Zoom out
+            scrollTrigger: {
+                trigger: "#page5 h1",
+                scroller: "#main",
+                start: "top 450%",
+                end: "top -450%",
+                scrub: true,
+                pin: true
+            }
+        });
+
+        // 🐶 Page load pe dog image animate
+        let t1 = gsap.timeline();
+
+        t1.from("#main #page1_dog_image", {
+            opacity: 0,
+            duration: 1,
+            scale: 0.1
+        });
+
+        // 🥤 Page load pe bottle animate
+        t1.from("#bottle", {
+            opacity: 0,
+            duration: 1,
+            scale: 0.2
+        });
+
+        // 🧭 Nav ke buttons animate
+        t1.from("#nav_top>button", {
+            xPercent: 200,
+            opacity: 0,
+            duration: 0.8
+        });
+
+        // 👇 Page 2 ke button scroll pe animate
+        gsap.from("#page2_part1>button", {
+            scrollTrigger: {
+                trigger: "#page2_part1>button",
+                scroller: "#main",
+                start: "top 70%",
+            },
+            xPercent: -300,
+            duration: 1,
+            opacity: 0
+        });
+
+        // 👇 Page 6 ke button scroll pe right se aata hai
+        gsap.from("#page6_part6>button", {
+            scrollTrigger: {
+                trigger: "#page6_part6>button",
+                scroller: "#main",
+                start: "top 70%",
+            },
+            xPercent: 600,
+            duration: 1,
+            opacity: 0
+        });
+    </script>
+</body>
+
+</html>
